@@ -1,0 +1,11 @@
+extends /views/layout.pug
+
+block scripts
+    script(type='text/javascript', src='chords.js')
+    link(rel='stylesheet', href='chords.css')
+
+block content
+    p(id='chord')
+    p(id='tones')
+    button(onclick='newChord()') New Chord
+    button(onclick='showChord()') Show Notes

@@ -1,0 +1,19 @@
+extends /views/layout.pug
+
+block scripts
+    script(type='text/javascript', src='Gravity.js')
+
+block content
+    div(id='inject')
+    | Size
+    input(id='size', type='text', value='1')
+    | (In pixels. 1 pixel = 1 sun-radius)
+    | Mass
+    input(id='mass', type='text', value='1')
+    | (In earth-masses)
+    | Speed
+    input(id='speed', type='text', value='0')
+    | (In pixels per 1/60 seconds. 1/60 seconds = 24 hours)
+    | Angle
+    input(id='angle', type='text', value='0')
+    | (In degrees. Clockwise from the x axis)

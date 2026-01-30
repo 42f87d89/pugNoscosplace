@@ -1,0 +1,3 @@
+[submodule "Projects/Minesweeper"]
+	path = Projects/Minesweeper
+	url = https://github.com/42f87d89/jsMineweeper.git

@@ -1,0 +1,24 @@
+extends /views/layout.pug
+
+block scripts
+    script(type='text/javascript', src='brainfuck.js')
+
+block content
+    table
+        tbody
+            tr
+                td(align='center') in
+                td(align='center')
+                    | out (ascii
+                    input(id='ascii', type='checkbox')
+                    | )
+                td(align='center') src
+            tr
+                td(align='center')
+                    textarea(id='in', rows=30, cols=10)
+                td(align='center')
+                    textarea(id='out', rows=30, cols=20)
+                td(align='center')
+                    textarea(id='src', rows=30, cols=50)
+                td(align='center')
+                    button(type='button', onclick='parse()') Go!

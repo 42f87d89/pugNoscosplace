@@ -1,0 +1,96 @@
+extends /views/layout.pug
+
+block scripts
+    script(type='text/javascript', src='Lsys.js')
+    style.
+        .boxes{
+            right: 20%;
+            width: 20%;
+            float: right;
+        }
+        #inject{
+            left: 15%;
+            width: 80%;
+            height: 710px;
+            float: left;
+        }
+        canvas{
+            border: 1px solid #000;
+            float: right;
+        }
+
+block content
+    div
+        div(id='inject')
+        .boxes
+            label Seed:
+            input(id='seed', type='text', value='A')
+            label Rules:
+            input(id='rules', type='text', value='A->B[+A][-A],B->BB')
+            label Iterations:
+            input(id='n', type='text', value='4')
+            label Length:
+            input(id='length', type='text', value='30')
+            label Turn Angle:
+            input(id='turnAngle', type='text', value='45')
+            label Colors:
+            input(id='colors', type='text')
+            label Nodes:
+            input(id='nodes', type='text')
+            label Turn Clockwise:
+            input(id='turnCW', type='text', value='+')
+            label Turn Counter-Clockwise:
+            input(id='turnCC', type='text', value='-')
+            label Push:
+            input(id='push', type='text', value='[')
+            label Pop:
+            input(id='pop', type='text', value=']')
+            label Animated
+                input(id='anim', type='checkbox')
+            button(id='button', type='button', onclick='generate()') Generate
+            button(id='topng', type='button', onclick='toPNG()') Save to PNG
+            select(id='preset', value='-', onclick='presets()')
+                option(value='-') -
+                option(value='Tree') Tree
+                option(value='SierpinskiTriangle') Sierpinski Triangle
+                option(value='DragonCurve') Dragon Curve
+                option(value='KochCurve') Koch Curve
+                option(value='KochSnowflake') Koch Snowflake
+                option(value='WeirdSnowflake') Weird Snowflake
+                option(value='BushyTree') Bushy Tree
+        .textarea
+            textarea(id='log', readonly='', name='log', style='width: 100%; resize: none;', rows='10')
+        .text
+            :markdown-it()
+                # Instructions:
+                L-systems, short for Lindenmeyer system, is a mathy thing that can be used to make fractals and stuff.
+
+                ## Seed:
+                This is the starting value, it can be any character. 
+
+                ## Rules:
+                With the form "case1"->"result1","case2"->"result2",etc. The case is limited to being one character, where the result can be anything. What it does is, it looks at every character in the seed (or system), and replaces it with the result.
+
+                ## Iterations:
+                This is how many times the seed will be put through the rules. 
+
+                ## Length:
+                The length of the individual lines, it is a fraction of the height of the rectangle where things are drawn, anything that is not in the categories below will be treated as the instruction "draw a line forward".
+                
+                ## Turn Angle:
+                The angle by which to turn. 
+                
+                ## Nodes:
+                This is treated as a command "do absolutely nothing". Useful for controling the growth of the fractal.
+
+                ## Turn CW:
+                Turn clockwise. It is treated as a command "turn clockwise by ANGLE", where angle is Turn Angle.
+
+                ## Turn CC:
+                Turn counter-clockwise. It is treated as a command "turn counterclockwise by ANGLE", where angle is Turn Angle.
+
+                ## Push:
+                This is simply treated as a command "remember this position".
+
+                ## Pop:
+                This is the antithesis of Push, it is treated as a command "go back to the most recent place you remember, then forget about it".

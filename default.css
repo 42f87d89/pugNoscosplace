@@ -1,0 +1,66 @@
+html,
+body {
+    width: 100%;
+    height: 100%;
+    margin: 0px;
+    padding: 0px;
+    background: #ccc;
+    font-family: courier;
+}
+
+img {
+    display: block;
+    margin: auto;
+    image-rendering: -moz-crisp-edges;
+    image-rendering: -o-crisp-edges;
+    image-rendering: -webkit-optimize-contrast;
+    -ms-interpolation-mode: nearest-neighbor;
+}
+
+input,
+textarea {
+    box-sizing: border-box;
+    width: 100%;
+}
+
+.main {
+    border-radius: 3px;
+    box-shadow: 2px 2px 2px #888;
+    width: 70%;
+    margin-top: 2%;
+    margin-bottom: 0px;
+    margin-right: auto;
+    margin-left: auto;
+    padding: 3%;
+    background: #fff;
+}
+
+.text {
+    background: #fff;
+    margin: 5%;
+}
+
+.navbar {
+    text-align: center;
+    margin: 10px auto;
+}
+
+.NVitem {
+    display: inline-block;
+    width: 30%;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    vertical-align: middle;
+    background-color: #666;
+    text-decoration: none;
+    font-size: 20px;
+    color: #fff;
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+.NVitem:hover {
+    background-color: white;
+    color: black;
+}
