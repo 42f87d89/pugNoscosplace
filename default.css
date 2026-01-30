@@ -10,6 +10,7 @@ body {
 
 img {
     display: block;
+    width: 30%;
     margin: auto;
     image-rendering: -moz-crisp-edges;
     image-rendering: -o-crisp-edges;
